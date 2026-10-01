@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jeefry Hafizuddin Bin Abdullah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fdfbf7; --fg:#2d2d2d; --muted:#e5e0d8; --red:#ff4d4d; --blue:#2d5da1; --note:#fff9c4;
+  --wobbly:255px 15px 225px 15px / 15px 225px 15px 255px;
+  --wobbly-md:15px 225px 15px 255px / 225px 15px 255px 15px;
+  --head:"Kalam","Segoe Print","Comic Sans MS",cursive;
+  --body:"Patrick Hand","Segoe Print","Comic Sans MS",cursive;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);background-image:radial-gradient(var(--muted) 1px,transparent 1px);background-size:24px 24px;color:var(--fg);font-family:var(--body);font-size:20px;line-height:1.5}
+main{max-width:1024px;margin:0 auto;padding:0 24px}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);font-weight:700;margin:0;line-height:1.1}
+:focus-visible{outline:3px dashed var(--blue);outline-offset:4px}
+section{padding:80px 0 0}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;padding-top:72px}
+h1{font-size:clamp(40px,6vw,68px)}
+.lead{font-size:clamp(20px,2.4vw,26px);max-width:30ch;margin:20px 0 28px}
+.cta{display:flex;align-items:center;gap:8px}
+.arrow{width:90px;height:50px;color:var(--fg);overflow:visible}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:6px 26px;font:inherit;font-size:22px;color:var(--fg);background:#fff;border:3px solid var(--fg);border-radius:var(--wobbly);box-shadow:4px 4px 0 0 var(--fg);text-decoration:none;cursor:pointer;transition:transform .1s,box-shadow .1s,background .1s,color .1s}
+.btn:hover{background:var(--red);color:#fff;box-shadow:2px 2px 0 0 var(--fg);transform:translate(2px,2px)}
+.btn:active{box-shadow:none;transform:translate(4px,4px)}
+.btn.alt{background:var(--muted)}
+.btn.alt:hover{background:var(--blue)}
+
+/* photo */
+.photo{position:relative;justify-self:center;width:min(100%,340px);aspect-ratio:4/5;background:#fff;border:3px solid var(--fg);border-radius:var(--wobbly-md);box-shadow:8px 8px 0 0 var(--fg);transform:rotate(2deg);padding:12px}
+.photo .frame{position:relative;width:100%;height:100%;overflow:hidden;border:2px dashed var(--fg);border-radius:var(--wobbly-md);background:var(--muted)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo .fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--fg);opacity:.6}
+.photo.missing img{display:none}
+.photo.missing .fallback{display:flex}
+.tape{position:absolute;top:-16px;left:50%;width:110px;height:30px;margin-left:-55px;background:rgba(45,45,45,.18);transform:rotate(-3deg);border-left:2px dashed rgba(45,45,45,.35);border-right:2px dashed rgba(45,45,45,.35)}
+
+/* labels and cards */
+.tag{display:inline-block;background:var(--note);border:2px solid var(--fg);border-radius:var(--wobbly);padding:2px 18px;font-family:var(--head);font-size:22px;transform:rotate(-2deg);margin-bottom:24px;box-shadow:3px 3px 0 0 var(--fg)}
+.card{position:relative;background:#fff;border:2px solid var(--fg);border-radius:var(--wobbly-md);box-shadow:3px 3px 0 0 rgba(45,45,45,.1);padding:28px;transition:transform .1s}
+.card:hover{transform:rotate(-1deg)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.card h3{font-size:28px;margin-bottom:10px}
+.card p{margin:0}
+
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin:0;padding:0;list-style:none}
+.chips li{border:2px solid var(--fg);border-radius:var(--wobbly);padding:2px 18px;background:#fff;transition:transform .1s}
+.chips li:nth-child(odd){transform:rotate(-1.5deg)}
+.chips li:nth-child(even){transform:rotate(1.5deg)}
+.chips li:hover{transform:rotate(2deg);background:var(--note)}
+.chips.dashed li{border-style:dashed}
+.sub{font-size:18px;opacity:.7;margin-bottom:12px}
+
+.edu{background:var(--note)}
+.tack{position:absolute;top:-10px;left:50%;width:20px;height:20px;margin-left:-10px;background:var(--red);border:2px solid var(--fg);border-radius:50%}
+
+/* bmi demo */
+.bmi{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.field{display:block;margin-bottom:16px}
+.field span{display:block;margin-bottom:4px}
+input{width:100%;min-height:48px;padding:6px 16px;font:inherit;color:var(--fg);background:#fff;border:2px solid var(--fg);border-radius:var(--wobbly)}
+input::placeholder{color:rgba(45,45,45,.4)}
+input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(45,93,161,.2)}
+.result{min-height:120px;border:2px dashed var(--fg);border-radius:var(--wobbly-md);padding:20px;display:flex;flex-direction:column;justify-content:center}
+.result strong{font-family:var(--head);font-size:44px;line-height:1}
+
+.row{display:flex;gap:12px;margin-bottom:16px}
+.row .field{margin:0;flex:1;min-width:0}
+.mini .result{margin-top:16px;min-height:96px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.links{display:flex;flex-wrap:wrap;gap:24px}
+footer{padding:80px 0 48px;text-align:center;opacity:.7;font-size:17px}
+
+@media (max-width:760px){
+  body{font-size:19px}
+  .hero,.grid,.bmi{grid-template-columns:1fr}
+  .hero{gap:40px;padding-top:48px}
+  .photo{transform:rotate(1deg)}
+  .arrow{display:none}
+  section{padding-top:64px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+
+  <header class="hero">
+    <div>
+      <h1>Jeefry Hafizuddin Bin Abdullah</h1>
+      <p class="lead">Computer science student who builds small programs that make daily life easier.</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Get in touch</a>
+        <svg class="arrow" viewBox="0 0 90 50" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 7" aria-hidden="true">
+          <path d="M4 40 C 28 6, 56 4, 80 22"/><path d="M68 14 L82 23 L66 31" stroke-dasharray="none"/>
+        </svg>
+      </div>
+    </div>
+    <!-- Put your photo in the same folder as this file and name it jeff.jpeg -->
+    <div class="photo" id="photo">
+      <div class="tape" aria-hidden="true"></div>
+      <div class="frame">
+        <img src="jeff.jpeg" alt="Portrait of Jeefry Hafizuddin Bin Abdullah" onerror="document.getElementById('photo').classList.add('missing')">
+        <div class="fallback">add jeff.jpeg<br>to this folder</div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <span class="tag">About</span>
+    <div class="grid">
+      <div class="card edu">
+        <div class="tack" aria-hidden="true"></div>
+        <h3>UNITEN</h3>
+        <p>Computer Science, year 2.<br>Fourth semester.</p>
+      </div>
+      <div class="card">
+        <h3>1.5 years in</h3>
+        <p>Focused on front end and coding. I like turning everyday problems into programs people can actually use.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="tag">Skills</span>
+    <div class="grid">
+      <div class="card">
+        <h3>Languages</h3>
+        <ul class="chips">
+          <li>Java</li><li>C</li><li>C++</li><li>JavaScript</li><li>Python</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Command line</h3>
+        <p class="sub">Basic level</p>
+        <ul class="chips dashed">
+          <li>Linux commands</li><li>Windows terminal</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="tag">Project</span>
+    <div class="card">
+      <div class="tack" aria-hidden="true"></div>
+      <h3>BMI Calculator</h3>
+      <p class="sub" style="margin-top:8px">Enter height and weight to get your BMI. Try it below.</p>
+      <div class="bmi">
+        <div>
+          <label class="field"><span>Height (cm)</span><input id="h" type="number" inputmode="decimal" min="1" placeholder="170"></label>
+          <label class="field"><span>Weight (kg)</span><input id="w" type="number" inputmode="decimal" min="1" placeholder="65"></label>
+          <button class="btn" type="button" id="calc">Calculate</button>
+        </div>
+        <div class="result" aria-live="polite" id="out">Your result shows up here.</div>
+      </div>
+    </div>
+    <div class="grid" style="margin-top:32px">
+      <div class="card mini">
+        <h3>Bill Splitter</h3>
+        <p class="sub" style="margin-top:8px">Split a bill with a tip, per person.</p>
+        <label class="field"><span>Bill amount</span><input id="bill" type="number" inputmode="decimal" min="0" placeholder="120"></label>
+        <div class="row">
+          <label class="field"><span>Tip %</span><input id="tip" type="number" inputmode="decimal" min="0" value="10"></label>
+          <label class="field"><span>People</span><input id="ppl" type="number" inputmode="numeric" min="1" value="2"></label>
+        </div>
+        <button class="btn" type="button" id="split">Split it</button>
+        <div class="result" aria-live="polite" id="splitOut">Each person pays.</div>
+      </div>
+      <div class="card mini">
+        <h3>Focus Timer</h3>
+        <p class="sub" style="margin-top:8px">A 25 minute study session.</p>
+        <div class="result" aria-live="off"><strong id="time">25:00</strong></div>
+        <div class="btns">
+          <button class="btn" type="button" id="start">Start</button>
+          <button class="btn alt" type="button" id="reset">Reset</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <span class="tag">Contact</span>
+    <div class="links">
+      <!-- Replace each href with your real profile link -->
+      <a class="btn" href="https://www.linkedin.com/verify/?entryPoint=me_navigation_menu" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+      <a class="btn alt" href="https://www.instagram.com/the.only_jeff" target="_blank" rel="noopener">Instagram &#8599;</a>
+      <a class="btn" href="https://github.com/YOUR-GITHUB" target="_blank" rel="noopener">GitHub &#8599;</a>
+      <a class="btn alt" href="mailto:jeefryhafizuddin@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Jeefry Hafizuddin Bin Abdullah</footer>
+</main>
+
+<script>
+document.getElementById('calc').addEventListener('click',function(){
+  var h=parseFloat(document.getElementById('h').value),
+      w=parseFloat(document.getElementById('w').value),
+      out=document.getElementById('out');
+  if(!(h>0&&w>0)){out.textContent='Enter a height in cm and a weight in kg.';return;}
+  var m=h/100,b=w/(m*m),c=b<18.5?'Underweight':b<25?'Normal range':b<30?'Overweight':'Obese range';
+  out.innerHTML='<strong>'+b.toFixed(1)+'</strong><span>'+c+'</span>';
+});
+document.getElementById('split').addEventListener('click',function(){
+  var b=parseFloat(document.getElementById('bill').value),
+      t=parseFloat(document.getElementById('tip').value)||0,
+      p=parseInt(document.getElementById('ppl').value,10),
+      out=document.getElementById('splitOut');
+  if(!(b>0&&p>=1)){out.textContent='Enter a bill and at least 1 person.';return;}
+  var total=b*(1+t/100);
+  out.innerHTML='<strong>'+(total/p).toFixed(2)+'</strong><span>each, total '+total.toFixed(2)+'</span>';
+});
+(function(){
+  var LEN=25*60,left=LEN,timer=null,
+      el=document.getElementById('time'),btn=document.getElementById('start');
+  function draw(){var m=Math.floor(left/60),s=left%60;el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;document.title=timer?el.textContent+' | Focus':'Jeefry Hafizuddin Bin Abdullah';}
+  function stop(){clearInterval(timer);timer=null;btn.textContent=left>0&&left<LEN?'Resume':'Start';}
+  btn.addEventListener('click',function(){
+    if(timer){stop();draw();return;}
+    if(left<=0)left=LEN;
+    btn.textContent='Pause';
+    timer=setInterval(function(){left--;if(left<=0){left=0;stop();btn.textContent='Start';el.textContent='Done';document.title='Jeefry Hafizuddin Bin Abdullah';return;}draw();},1000);
+    draw();
+  });
+  document.getElementById('reset').addEventListener('click',function(){stop();left=LEN;btn.textContent='Start';draw();});
+})();
+</script>
+</body>
+</html>
